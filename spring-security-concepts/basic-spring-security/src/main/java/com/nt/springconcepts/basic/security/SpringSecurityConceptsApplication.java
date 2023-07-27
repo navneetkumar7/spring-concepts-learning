@@ -1,8 +1,7 @@
-package com.nt.springconcepts.security;
+package com.nt.springconcepts.basic.security;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 public class SpringSecurityConceptsApplication {

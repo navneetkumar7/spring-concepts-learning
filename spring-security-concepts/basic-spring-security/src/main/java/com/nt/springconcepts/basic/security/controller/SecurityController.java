@@ -1,12 +1,12 @@
-package com.nt.springconcepts.security.controller;
+package com.nt.springconcepts.basic.security.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class SecurityController {
-    @GetMapping("/users/login")
+    @GetMapping("/security/basic")
     public String login(){
-        return "logged in with default password set";
+        return "default password set";
     }
 }
