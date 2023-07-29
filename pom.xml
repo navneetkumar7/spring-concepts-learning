@@ -19,13 +19,13 @@
     </properties>
     <modules>
         <module>spring-security-concepts</module>
+        <module>spring-security-concepts/basic-spring-security</module>
     </modules>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
