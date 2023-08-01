@@ -19,7 +19,6 @@
     </properties>
     <modules>
         <module>spring-security-concepts</module>
-        <module>spring-security-concepts/basic-spring-security</module>
     </modules>
     <dependencies>
         <dependency>

@@ -1,4 +1,4 @@
-package com.nt.springconcepts.basic.security;
+package com.nt.springconcepts.security.basic;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
