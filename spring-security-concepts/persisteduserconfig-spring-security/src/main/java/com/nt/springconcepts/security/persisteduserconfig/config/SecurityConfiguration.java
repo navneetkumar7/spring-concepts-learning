@@ -6,10 +6,14 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+
+import javax.sql.DataSource;
 
 import static org.springframework.security.config.Customizer.withDefaults;
 
@@ -18,20 +22,21 @@ public class SecurityConfiguration {
     @Bean
     SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
         return http
+                .csrf().disable()
                 .authorizeHttpRequests(
                         requests -> requests
                                 .requestMatchers("/api/v1/accounts/**").authenticated()
-                                .requestMatchers("/api/v1/contacts").permitAll()
+                                .requestMatchers("/api/v1/contacts","/register").permitAll()
                 )
                 .formLogin(withDefaults())
                 .httpBasic(withDefaults())
                 .build();
     }
 
-    @Bean
+  /*  @Bean
     public InMemoryUserDetailsManager userDetailsService() {
-        /* Approach 1 creating user using withDefaultPasswordEncoder*/
-       /* UserDetails admin= User.withDefaultPasswordEncoder()
+        *//* Approach 1 creating user using withDefaultPasswordEncoder*//*
+     *//* UserDetails admin= User.withDefaultPasswordEncoder()
                 .username("admin")
                 .password("admin")
                 .authorities("admin")
@@ -41,9 +46,9 @@ public class SecurityConfiguration {
                 .password("user")
                 .authorities("read")
                 .build();
-        return new InMemoryUserDetailsManager(admin,user);*/
+        return new InMemoryUserDetailsManager(admin,user);*//*
 
-        /* Approach 2 creating user using NoOpPasswordEncoder*/
+     *//* Approach 2 creating user using NoOpPasswordEncoder*//*
 
         UserDetails admin = User.withUsername("admin")
                 .password("admin")
@@ -55,10 +60,16 @@ public class SecurityConfiguration {
                 .build();
         return new InMemoryUserDetailsManager(admin, user);
 
-    }
+    }*/
+
+   /* @Bean
+    public UserDetailsService userDetailsService(DataSource dataSource) {
+        return new JdbcUserDetailsManager(dataSource);
+    }*/
 
     /**
      * NoOpPasswordEncoder
+     *
      * @return
      */
     @Bean
