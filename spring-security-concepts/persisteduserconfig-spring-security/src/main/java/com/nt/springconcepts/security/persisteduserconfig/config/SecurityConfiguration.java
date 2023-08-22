@@ -7,6 +7,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
@@ -25,8 +26,8 @@ public class SecurityConfiguration {
                 .csrf().disable()
                 .authorizeHttpRequests(
                         requests -> requests
-                                .requestMatchers("/api/v1/accounts/**").authenticated()
-                                .requestMatchers("/api/v1/contacts","/register").permitAll()
+                                 .requestMatchers("/api/v1/accounts/**").authenticated()
+                                .requestMatchers("/api/v1/contacts","/register-user").permitAll()
                 )
                 .formLogin(withDefaults())
                 .httpBasic(withDefaults())
@@ -72,8 +73,13 @@ public class SecurityConfiguration {
      *
      * @return
      */
-    @Bean
+    /*@Bean
     public PasswordEncoder passwordencoder() {
         return NoOpPasswordEncoder.getInstance();
+    }*/
+
+    @Bean
+    public PasswordEncoder passwordEncoder(){
+        return new BCryptPasswordEncoder();
     }
 }
