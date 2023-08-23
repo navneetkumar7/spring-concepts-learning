@@ -16,6 +16,7 @@
 		<module>basic-spring-security</module>
 		<module>customconfig-spring-security</module>
         <module>persisteduserconfig-spring-security</module>
+		<module>customauthenticationprovider-spring-security</module>
     </modules>
 	<packaging>pom</packaging>
 	<properties>
