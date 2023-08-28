@@ -1,6 +1,6 @@
-package com.nt.springconcepts.security.persisteduserconfig.reposiotry;
+package com.nt.springconcepts.security.customauthenticationprovider.reposiotry;
 
-import com.nt.springconcepts.security.persisteduserconfig.model.Customer;
+import com.nt.springconcepts.security.customauthenticationprovider.model.Customer;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

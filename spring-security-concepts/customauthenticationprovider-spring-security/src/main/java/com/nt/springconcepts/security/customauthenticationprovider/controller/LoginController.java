@@ -1,7 +1,7 @@
-package com.nt.springconcepts.security.persisteduserconfig.controller;
+package com.nt.springconcepts.security.customauthenticationprovider.controller;
 
-import com.nt.springconcepts.security.persisteduserconfig.model.Customer;
-import com.nt.springconcepts.security.persisteduserconfig.reposiotry.CustomerRepository;
+import com.nt.springconcepts.security.customauthenticationprovider.model.Customer;
+import com.nt.springconcepts.security.customauthenticationprovider.reposiotry.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

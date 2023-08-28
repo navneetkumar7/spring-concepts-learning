@@ -1,4 +1,4 @@
-package com.nt.springconcepts.security.persisteduserconfig.config;
+package com.nt.springconcepts.security.customauthenticationprovider.config;
 
 import org.springframework.cglib.proxy.NoOp;
 import org.springframework.context.annotation.Bean;

@@ -1,4 +1,4 @@
-package com.nt.springconcepts.security.persisteduserconfig.model;
+package com.nt.springconcepts.security.customauthenticationprovider.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

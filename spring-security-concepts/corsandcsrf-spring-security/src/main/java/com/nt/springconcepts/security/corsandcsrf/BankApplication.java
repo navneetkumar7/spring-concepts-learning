@@ -1,10 +1,7 @@
-package com.nt.springconcepts.security.persisteduserconfig;
+package com.nt.springconcepts.security.corsandcsrf;
 
-import jakarta.persistence.Entity;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
 //@EnableJpaRepositories("com.nt.springconcepts.security.persisteduserconfig.reposiotry")// this is needed if the repository package lies out sie of the package where main class is defined.

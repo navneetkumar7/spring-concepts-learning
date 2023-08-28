@@ -1,4 +1,4 @@
-package com.nt.springconcepts.security.persisteduserconfig.controller;
+package com.nt.springconcepts.security.customauthenticationprovider.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

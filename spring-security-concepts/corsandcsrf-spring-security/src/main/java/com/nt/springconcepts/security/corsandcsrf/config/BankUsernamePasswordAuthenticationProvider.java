@@ -1,7 +1,7 @@
-package com.nt.springconcepts.security.persisteduserconfig.config;
+package com.nt.springconcepts.security.corsandcsrf.config;
 
-import com.nt.springconcepts.security.persisteduserconfig.model.Customer;
-import com.nt.springconcepts.security.persisteduserconfig.reposiotry.CustomerRepository;
+import com.nt.springconcepts.security.corsandcsrf.model.Customer;
+import com.nt.springconcepts.security.corsandcsrf.reposiotry.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;

@@ -6,7 +6,7 @@
 		<groupId>com.nt.springconcepts</groupId>
 		<artifactId>spring-concepts</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath>../../spring-concepts-learning/pom.xml</relativePath> <!-- lookup parent from repository -->
 	</parent>
 	<artifactId>spring-security-concepts</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
@@ -17,6 +17,7 @@
 		<module>customconfig-spring-security</module>
         <module>persisteduserconfig-spring-security</module>
 		<module>customauthenticationprovider-spring-security</module>
+		<module>corsandcsrf-spring-security</module>
     </modules>
 	<packaging>pom</packaging>
 	<properties>
