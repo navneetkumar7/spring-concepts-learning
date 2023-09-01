@@ -13,11 +13,13 @@
 	<name>spring-security-concepts</name>
 	<description>This project is for learning spring security concepts.</description>
 	<modules>
-		<module>basic-spring-security</module>
-		<module>customconfig-spring-security</module>
-        <module>persisteduserconfig-spring-security</module>
-		<module>customauthenticationprovider-spring-security</module>
-		<module>corsandcsrf-spring-security</module>
+		<module>1-basic-spring-security</module>
+		<module>2-customconfig-spring-security</module>
+        <module>3-persisteduserconfig-spring-security</module>
+		<module>4-customauthenticationprovider-spring-security</module>
+		<module>5-corsandcsrf-spring-security</module>
+		<module>6-authenticationandauthorization-spring-security</module>
+		<module>7-filters-spring-security</module>
     </modules>
 	<packaging>pom</packaging>
 	<properties>
