@@ -1,41 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>com.nt.springconcepts</groupId>
-		<artifactId>spring-concepts</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
-		<relativePath>../../spring-concepts-learning/pom.xml</relativePath> <!-- lookup parent from repository -->
-	</parent>
-	<artifactId>spring-security-concepts</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>spring-security-concepts</name>
-	<description>This project is for learning spring security concepts.</description>
-	<modules>
-		<module>1-basic-spring-security</module>
-		<module>2-customconfig-spring-security</module>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.nt.springconcepts</groupId>
+        <artifactId>spring-concepts</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../../spring-concepts-learning/pom.xml</relativePath> <!-- lookup parent from repository -->
+    </parent>
+    <artifactId>spring-security-concepts</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>spring-security-concepts</name>
+    <description>This project is for learning spring security concepts.</description>
+    <modules>
+        <module>1-basic-spring-security</module>
+        <module>2-customconfig-spring-security</module>
         <module>3-persisteduserconfig-spring-security</module>
-		<module>4-customauthenticationprovider-spring-security</module>
-		<module>5-corsandcsrf-spring-security</module>
-		<module>6-authenticationandauthorization-spring-security</module>
-		<module>7-filters-spring-security</module>
+        <module>4-customauthenticationprovider-spring-security</module>
+        <module>5-corsandcsrf-spring-security</module>
+        <module>6-authenticationandauthorization-spring-security</module>
+        <module>7-filters-spring-security</module>
+        <module>8-jwt-spring-security</module>
     </modules>
-	<packaging>pom</packaging>
-	<properties>
-		<maven.compiler.source>17</maven.compiler.source>
-		<maven.compiler.target>17</maven.compiler.target>
-	</properties>
+    <packaging>pom</packaging>
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+    </properties>
 
-	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 </project>
