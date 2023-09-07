@@ -21,6 +21,9 @@
         <module>6-authenticationandauthorization-spring-security</module>
         <module>7-filters-spring-security</module>
         <module>8-jwt-spring-security</module>
+        <module>9-methodlevelsec-spring-security</module>
+        <module>10-oauth2-spring-security</module>
+        <module>11-oauth2withkeycloak-spring-security</module>
     </modules>
     <packaging>pom</packaging>
     <properties>

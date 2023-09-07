@@ -1,7 +1,7 @@
-package com.nt.springconcepts.security.jwt.config;
+package com.nt.springconcepts.security.oauth2.config;
 
-import com.nt.springconcepts.security.jwt.constants.SecurityConstants;
-import com.nt.springconcepts.security.jwt.filter.*;
+import com.nt.springconcepts.security.oauth2.constants.SecurityConstants;
+import com.nt.springconcepts.security.oauth2.filter.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -57,7 +57,8 @@ public class SecurityConfiguration {
                                 //.hasAuthority("ROLE_USER")//NOTE:authorization check
                                 .hasAnyRole("ADMIN","USER")//NOTE: role check spring appends ROLE_ by default
                                 .requestMatchers("/api/v1/users").authenticated()
-                                .requestMatchers("/api/v1/contacts", "/register","/api/v1/notices").permitAll()
+                                .requestMatchers("/api/v1/notices").authenticated()
+                                .requestMatchers("/api/v1/contacts", "/register").permitAll()
                 )
                 .formLogin(withDefaults())
                 .httpBasic(withDefaults())
