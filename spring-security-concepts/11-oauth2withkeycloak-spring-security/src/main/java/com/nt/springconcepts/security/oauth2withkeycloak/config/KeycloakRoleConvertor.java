@@ -11,6 +11,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+/**
+ * @class
+ * The Key Cloak Auth server going to return an access token(Jwt token). Access token has information about the roles of
+ * client application or roles of end user. This class is responsible for extraction of roles information or
+ * authorities information from the token and convert them into a format which spring security framework can
+ * understand.
+ */
 public class KeycloakRoleConvertor implements Converter<Jwt, Collection<GrantedAuthority>> {
 
     @Override

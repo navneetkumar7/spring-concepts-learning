@@ -2,7 +2,7 @@ package com.nt.springconcepts.security.oauth2withkeycloak.config;
 
 
 import com.nt.springconcepts.security.oauth2withkeycloak.constants.SecurityConstants;
-import com.nt.springconcepts.security.oauth2withkeycloak.filter.*;
+import com.nt.springconcepts.security.oauth2withkeycloak.filter.CsrfCookieFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -17,8 +17,6 @@ import org.springframework.web.cors.CorsConfiguration;
 import java.util.Arrays;
 import java.util.Collections;
 
-import static org.springframework.security.config.Customizer.withDefaults;
-
 @Configuration
 public class SecurityConfiguration {
     @Bean
@@ -28,11 +26,8 @@ public class SecurityConfiguration {
         JwtAuthenticationConverter jwtAuthenticationConverter = new JwtAuthenticationConverter();
         jwtAuthenticationConverter.setJwtGrantedAuthoritiesConverter(new KeycloakRoleConvertor());
         return http
-                .sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                .and()
-                .cors()
-                .configurationSource((httpServletRequest) -> {
+                .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .cors(cqrsConfigure -> cqrsConfigure.configurationSource((httpServletRequest) -> {
                     CorsConfiguration corsConfiguration = new CorsConfiguration();
                     corsConfiguration.setAllowedOrigins(Collections.singletonList("http://localhost:4200"));
                     corsConfiguration.setAllowedMethods(Collections.singletonList("*"));
@@ -41,8 +36,7 @@ public class SecurityConfiguration {
                     corsConfiguration.setExposedHeaders(Arrays.asList(SecurityConstants.JWT_HEADER));
                     corsConfiguration.setMaxAge(3600L);
                     return corsConfiguration;
-                })
-                .and()
+                }))
                 .csrf((csrf) -> csrf.csrfTokenRequestHandler(csrfTokenRequestAttributeHandler)
                         .ignoringRequestMatchers("/api/v1/contacts", "/register")//NOTE:public end points that don't need csrf protection
                         .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()))
@@ -51,19 +45,18 @@ public class SecurityConfiguration {
                         (authorize) -> {
                             try {
                                 authorize
-                                        .requestMatchers("/api/v1/cards").hasAnyRole("USER","ADMIN")
+                                        .requestMatchers("/api/v1/cards").hasAnyRole("USER", "ADMIN")
                                         .requestMatchers("/api/v1/users").authenticated()
-                                        .requestMatchers("/api/v1/notices").authenticated()
-                                        .requestMatchers("/api/v1/contacts", "/register").permitAll()
-                                        .and()
-                                        .oauth2ResourceServer()
-                                        .jwt()
-                                        .jwtAuthenticationConverter(jwtAuthenticationConverter);
+                                        .requestMatchers("/api/v1/notices").hasRole("USER")
+                                        .requestMatchers("/api/v1/transactions").hasRole("USER")
+                                        .requestMatchers("/api/v1/contacts", "/register").permitAll();
+
                             } catch (Exception e) {
                                 throw new RuntimeException(e);
                             }
                         }
-                )
+                ).oauth2ResourceServer(oAuth2ResourceServerConfigurer -> oAuth2ResourceServerConfigurer
+                        .jwt(jwtConfigurer -> jwtConfigurer.jwtAuthenticationConverter(jwtAuthenticationConverter)))
                 .build();
     }
 }
